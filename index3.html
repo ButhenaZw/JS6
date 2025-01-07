@@ -50,8 +50,6 @@
                 this.todoList = document.getElementById('todo-list');
                 this.todoInput = document.getElementById('todo-input');
                 this.addButton = document.getElementById('add-button');
-
-                // Bind the addTask method to the button's click event
                 this.addButton.addEventListener('click', () => this.addTask());
             }
 
@@ -63,30 +61,21 @@
                     return;
                 }
 
-                // Create a list item for the task
                 const listItem = document.createElement('li');
                 listItem.textContent = taskText;
 
-                // Create a "Complete" button
                 const completeButton = document.createElement('button');
                 completeButton.textContent = 'Complete';
                 completeButton.classList.add('complete-button');
                 completeButton.addEventListener('click', () => this.toggleComplete(listItem));
 
-                // Create a "Delete" button
                 const deleteButton = document.createElement('button');
                 deleteButton.textContent = 'Delete';
                 deleteButton.classList.add('delete-button');
                 deleteButton.addEventListener('click', () => this.deleteTask(listItem));
-
-                // Append buttons to the list item
                 listItem.appendChild(completeButton);
                 listItem.appendChild(deleteButton);
-
-                // Add the list item to the to-do list
                 this.todoList.appendChild(listItem);
-
-                // Clear the input field
                 this.todoInput.value = '';
             }
 
@@ -98,8 +87,6 @@
                 this.todoList.removeChild(task);
             }
         }
-
-        // Initialize the To-Do List application
         const todoApp = new ToDo();
     </script>
 </body>
